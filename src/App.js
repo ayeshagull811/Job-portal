@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
+import HomePage from './Pages/HomePage';
+import LoginPage from './Components/Login';
+import SignUpPage from './Components/signUp';
+import JobDescription from "./Pages/JobDescription"
+import ApplyNow from './Components/ApplyJob';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  return (
+
+return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='' >
+     <Header/>
+     
+      <Routes>
+            <Route path='/' element={<HomePage />}/>
+            <Route path='/login' element={<LoginPage/>} />
+            <Route path='/Signup' element={<SignUpPage/>}/>
+      
+            <Route path='/jobdescription/:id' element={<JobDescription/>}/>
+            <Route path='/applynow/:id' element={<ApplyNow/>}/>
+      </Routes>
+     
+     <Footer/>
+    </div>
     </div>
   );
 }
