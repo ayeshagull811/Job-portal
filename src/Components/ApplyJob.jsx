@@ -13,8 +13,34 @@ import axios from "axios";
 
 function ApplyNow(props) {
    const [applyForm , setapplyForm] = useState({
-    
+    fullname:"",
+      email:"",
+      coverletter:"",
+      phoneNumber:"",
+      appliedjob:""
    })
+   const handleChange = (e) => {
+  const { name, value } = e.target;
+  setapplyForm((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/applyjob/applynow",
+        applyForm,
+        
+      );
+      alert(res.data.message); 
+    } catch (err) {
+      console.error(err);
+      alert("fail to apply for job");
+    }
+  };
   const { id } = useParams();
   console.log("job id", id)
  
@@ -24,6 +50,10 @@ function ApplyNow(props) {
         .then((res) => {
            console.log('apply for job by id: ', res.data.data)
           setapplyJob(res.data.data); // Save job data from backend
+          setapplyForm((prev) => ({
+    ...prev,
+  appliedjob: res.data.data._id,
+  }));
         })
          .catch((err) => {
               console.error("Error fetching job:", err);
@@ -34,6 +64,7 @@ function ApplyNow(props) {
   
   return (
     <section className="bg-gray-100 py-10">
+    <form onSubmit={handleSubmit}>
       <div className="bg-white p-8 rounded-2xl shadow-md  mx-20">
         <div>
           <p className="font-bold text-2xl text-center">{applyJob.title}</p>
@@ -99,6 +130,9 @@ function ApplyNow(props) {
                 <input
                   type="text"
                   id="fullname"
+                  onChange={handleChange}
+                  name="fullname"
+                  value={applyForm.fullname}
                   className="border border-gray-300 rounded px-35 py-2"
                 />
               </div>
@@ -113,6 +147,10 @@ function ApplyNow(props) {
                 <input
                   type="text"
                   id="email"
+                   name="email"
+                  onChange={handleChange}
+                  value={applyForm.email}
+                 
                   className="border border-gray-300 rounded px-35 py-2"
                 />
               </div>
@@ -127,8 +165,11 @@ function ApplyNow(props) {
                 </label>
                 <br />
                 <input
-                  type="text"
+                  type="tel"
                   id="phonenumber"
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  value={applyForm.phoneNumber}
                   className="border border-gray-300 rounded px-35 py-2"
                 />
               </div>
@@ -165,9 +206,11 @@ function ApplyNow(props) {
             </label>
             <textarea
               id="description"
-              name="description"
+              name="coverletter"
               rows={5}
               cols={40}
+              value={applyForm.coverletter}
+              onChange={handleChange}
               className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 mt-2 mb-6"
             />
             <div className="flex justify-between  mb-10">
@@ -271,6 +314,7 @@ function ApplyNow(props) {
           </div>
         </div>
       </div>
+      </form>
     </section>
   );
 }

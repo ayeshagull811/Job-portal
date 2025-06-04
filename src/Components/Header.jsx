@@ -20,7 +20,7 @@ function Header() {
           <Link>Jobs</Link>
         </p>
         <p>
-          <Link>Companies</Link>
+          <Link to="company">Companies</Link>
         </p>
         <p>
           <Link>For Employers</Link>

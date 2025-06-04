@@ -13,7 +13,6 @@ function JobCard() {
   const [data, setData] = useState([]);
 
 
-
   useEffect(() => {
     axios.get(API_URL)
     .then((res) => {

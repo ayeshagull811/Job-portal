@@ -9,6 +9,7 @@ import JobDescription from "./Pages/JobDescription"
 import ApplyNow from './Components/ApplyJob';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import CompanyName from './Components/Company';
 
 function App() {
 
@@ -21,7 +22,7 @@ return(
             <Route path='/' element={<HomePage />}/>
             <Route path='/login' element={<LoginPage/>} />
             <Route path='/Signup' element={<SignUpPage/>}/>
-      
+            <Route path='/company' element={<CompanyName />}/>
             <Route path='/jobdescription/:id' element={<JobDescription/>}/>
             <Route path='/applynow/:id' element={<ApplyNow/>}/>
       </Routes>

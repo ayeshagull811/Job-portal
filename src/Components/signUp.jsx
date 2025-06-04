@@ -30,6 +30,7 @@ const handleChange = (e) => {
   setFormData((prev) => ({
     ...prev,
     [name]: value,
+    role: "user"
   }));
 };
   const handleSubmit = async (e) => {
@@ -60,8 +61,8 @@ const handleChange = (e) => {
       {step === 1 ? (
         <section>
           <form onSubmit={handleSubmit}>
-          <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 m-20">
-            <div className="max-w-150 w-full bg-white p-8 rounded-lg shadow-md">
+          <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 ">
+            <div className="max-w-150 w-full bg-white p-8 rounded-lg shadow-md m-10">
               <p className="text-3xl font-semibold text-gray-900 mb-2 text-center">
                 Create Your Account
               </p>
@@ -217,8 +218,8 @@ const handleChange = (e) => {
       ) : (
         <section>
           <form onSubmit={handleSubmit}>
-          <div className="min-h-screen flex items-center justify-center px-4 py-10 m-20">
-            <div className="max-w-150 w-full bg-white p-8 rounded-lg shadow-md">
+          <div className="min-h-screen flex items-center justify-center px-4 bg-gray-100 py-10">
+            <div className="max-w-150 w-full bg-white p-8 rounded-lg shadow-md m-10">
               <p className="text-3xl font-semibold text-gray-900 mb-2 text-center">
                 Create Your Account
               </p>

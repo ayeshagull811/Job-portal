@@ -34,8 +34,8 @@ function LoginPage() {
     };
   return (
     <form onSubmit={handleSubmit}>
-    <div className=" flex items-center justify-center bg-gray-50 px-4 m-20">
-      <div className="max-w-150 bg-white p-8 rounded-lg shadow-md">
+    <div className=" flex items-center justify-center bg-gray-100 px-4">
+      <div className="max-w-150 bg-white p-8 rounded-lg shadow-md m-10">
         <p className="text-3xl font-semibold text-gray-900 mb-2 text-center">
           Welcome Back!
         </p>
