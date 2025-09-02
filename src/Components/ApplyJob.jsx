@@ -10,6 +10,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AlertCircle } from "lucide-react";
 import axios from "axios";
+import Footer from "./Footer";
+import Header from "./Header";
 
 function ApplyNow(props) {
    const [applyForm , setapplyForm] = useState({
@@ -63,6 +65,8 @@ function ApplyNow(props) {
     console.log("job data", applyJob);
   
   return (
+    <>
+     <Header/>
     <section className="bg-gray-100 py-10">
     <form onSubmit={handleSubmit}>
       <div className="bg-white p-8 rounded-2xl shadow-md  mx-20">
@@ -71,7 +75,7 @@ function ApplyNow(props) {
           <div className="flex justify-between">
             <div className="flex items-center gap-5 max-md:flex-col max-md:items-start">
               <img
-                src={applyJob.logo}
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT9yJBpgSDzIniWvWL0Bk571IB3O6PFe-R7Q&s"
                 alt=""
                 className="w-15 h-15 rounded-md shadow-md"
               />
@@ -97,13 +101,13 @@ function ApplyNow(props) {
                     {applyJob.posted}
                   </p>
                   <p className="flex items-center gap-1 px-3 py-2 rounded-xl bg-purple-100 text-purple-700">
-                    {applyJob.salary}
+                    $ {applyJob.minsalary}-$ {applyJob.maxsalary}
                   </p>
                 </div>
               </div>
             </div>
             <div>
-              <Link to="applynow">
+              <Link to={`/jobdescription/${applyJob._id}`}>
                 <button className="bg- px-6 py-2 text-gray-800 border border-gray-500 rounded-xl">
                   View Details
                 </button>
@@ -316,6 +320,8 @@ function ApplyNow(props) {
       </div>
       </form>
     </section>
+    <Footer/>
+    </>
   );
 }
 

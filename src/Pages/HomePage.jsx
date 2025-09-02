@@ -3,11 +3,13 @@ import { Search, MapPin, Briefcase, BriefcaseBusiness } from "lucide-react";
 import { Link } from "react-router-dom";
 import JobDetail from "./JobDetails";
 import JobCard from "./JobCard";
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 function HomePage({ data }) {
-  
   return (
     <>
+    <Header/>
       <div className="bg-gradient-to-r from-purple-600 to-purple-800 py-16 px-4 text-center text-white">
         <div className="text-center mb-8">
           <p className="text-3xl font-bold text-white mb-2 ">
@@ -62,7 +64,9 @@ function HomePage({ data }) {
         </div>
       </div>
       <JobCard />
+      <Footer/>
     </>
+    
   );
 }
 export default HomePage;

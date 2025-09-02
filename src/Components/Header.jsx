@@ -20,13 +20,13 @@ function Header() {
           <Link>Jobs</Link>
         </p>
         <p>
-          <Link to="company">Companies</Link>
+          <Link to="/company">Companies</Link>
         </p>
         <p>
           <Link>For Employers</Link>
         </p>
         <p>
-          <Link to="login">Login</Link>
+          <Link to="/login">Login</Link>
         </p>
         <p className="bg-gradient-to-r from-purple-900 via-purple-800  to-purple-700 px-6 py-2 text-white rounded-3xl">
           <Link to="/Signup">Sign Up</Link>

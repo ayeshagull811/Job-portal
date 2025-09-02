@@ -2,6 +2,8 @@ import axios from "axios";
 import { Briefcase, Clock, MapPin, Star } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 function JobDescription() {
   const { id } = useParams();
@@ -23,6 +25,8 @@ function JobDescription() {
   console.log("job data", JobsData);
 
   return (
+    <>
+     <Header/>
     <section>
       <div>
         <div className="bg-white p-8 rounded-2xl shadow-md my-10 mx-20">
@@ -64,7 +68,7 @@ function JobDescription() {
                 </div>
               </div>
               <div>
-                <Link to={`/applynow/${JobsData.id}`}>
+                <Link to={`/applynow/${JobsData._id}`}>
                   <button className="bg-gradient-to-r from-purple-900 via-purple-800  to-purple-700 px-6 py-2 text-white rounded-3xl">
                     Apply Now
                   </button>
@@ -72,6 +76,7 @@ function JobDescription() {
               </div>
             </div>
           </div>
+           <hr className="mt-10 text-gray-300"/>
           <div>
             <p className="font-bold text-center mt-20 mb-5 text-xl">
               Job Description
@@ -118,7 +123,7 @@ function JobDescription() {
             </ul>
             <div className="flex items-center justify-center mt-20 mb-10">
               <button className="px-6 py-3 bg-purple-700 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-purple-800 transition">
-                Apply for this Position
+                <Link to={`/applynow/${JobsData._id}`}>Apply for this Position</Link>
               </button>
             </div>
           </div>
@@ -130,7 +135,7 @@ function JobDescription() {
           <div className="flex justify-center gap-x-9  flex-wrap my-10">
             <div className="flex bg-white p-6 rounded-2xl shadow-md w-[550px] gap-4 items-start">
               <img
-                src={JobsData.logo}
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT9yJBpgSDzIniWvWL0Bk571IB3O6PFe-R7Q&s"
                 alt=""
                 className="w-15 h-15 rounded-md shadow-md"
               />
@@ -158,7 +163,7 @@ function JobDescription() {
             </div>
             <div className="flex bg-white p-6 rounded-2xl shadow-md w-[550px] gap-4 items-start">
               <img
-                src={JobsData.logo}
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT9yJBpgSDzIniWvWL0Bk571IB3O6PFe-R7Q&s"
                 alt=""
                 className="w-15 h-15 rounded-md shadow-md"
               />
@@ -188,6 +193,8 @@ function JobDescription() {
         </div>
       </div>
     </section>
+    <Footer/>
+    </>
   );
 }
 export default JobDescription;
